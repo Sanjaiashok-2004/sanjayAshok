@@ -1,0 +1,1383 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v23.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Benefits Of Building a Custom House in Lahore - Glorious Builders-One of the Best Construction Companies in Pakistan</title>
+	<meta name="description" content="We are working in Lahore and Islamabad and can give the best interpretation of your dream home in Lahore. Best Construction Company in Lahore" />
+	<link rel="canonical" href="https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Benefits Of Building a Custom House in Lahore - Glorious Builders-One of the Best Construction Companies in Pakistan" />
+	<meta property="og:description" content="We are working in Lahore and Islamabad and can give the best interpretation of your dream home in Lahore. Best Construction Company in Lahore" />
+	<meta property="og:url" content="https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/" />
+	<meta property="og:site_name" content="Glorious Builders-One of the Best Construction Companies in Pakistan" />
+	<meta property="article:publisher" content="https://www.facebook.com/GloriousBuildersOfficial" />
+	<meta property="article:published_time" content="2022-11-23T20:40:59+00:00" />
+	<meta property="article:modified_time" content="2022-11-23T20:44:37+00:00" />
+	<meta property="og:image" content="https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore.jpg" />
+	<meta property="og:image:width" content="2048" />
+	<meta property="og:image:height" content="1152" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="author" content="Glorious Builders" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@GBuildersLHR" />
+	<meta name="twitter:site" content="@GBuildersLHR" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Glorious Builders" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="4 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/#article","isPartOf":{"@id":"https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/"},"author":{"name":"Glorious Builders","@id":"https://www.gloriousbuilders.com/#/schema/person/da29264d284e3fd08cf4113da73d4e46"},"headline":"Benefits Of Building a Custom House in Lahore","datePublished":"2022-11-23T20:40:59+00:00","dateModified":"2022-11-23T20:44:37+00:00","mainEntityOfPage":{"@id":"https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/"},"wordCount":752,"publisher":{"@id":"https://www.gloriousbuilders.com/#organization"},"image":{"@id":"https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/#primaryimage"},"thumbnailUrl":"https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore.jpg","articleSection":["Construction"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/","url":"https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/","name":"Benefits Of Building a Custom House in Lahore - Glorious Builders-One of the Best Construction Companies in Pakistan","isPartOf":{"@id":"https://www.gloriousbuilders.com/#website"},"primaryImageOfPage":{"@id":"https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/#primaryimage"},"image":{"@id":"https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/#primaryimage"},"thumbnailUrl":"https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore.jpg","datePublished":"2022-11-23T20:40:59+00:00","dateModified":"2022-11-23T20:44:37+00:00","description":"We are working in Lahore and Islamabad and can give the best interpretation of your dream home in Lahore. Best Construction Company in Lahore","breadcrumb":{"@id":"https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/#primaryimage","url":"https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore.jpg","contentUrl":"https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore.jpg","width":2048,"height":1152,"caption":"Best Construction Company in Lahore"},{"@type":"BreadcrumbList","@id":"https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.gloriousbuilders.com/"},{"@type":"ListItem","position":2,"name":"Blogs","item":"https://www.gloriousbuilders.com/blog/"},{"@type":"ListItem","position":3,"name":"Benefits Of Building a Custom House in Lahore"}]},{"@type":"WebSite","@id":"https://www.gloriousbuilders.com/#website","url":"https://www.gloriousbuilders.com/","name":"Glorious Builders Grey Structure & Renovation Construction Company Lahore","description":"Among Best Construction Companies in Lahore Pakistan","publisher":{"@id":"https://www.gloriousbuilders.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.gloriousbuilders.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://www.gloriousbuilders.com/#organization","name":"Glorious Builders Construction Company Lahore","url":"https://www.gloriousbuilders.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.gloriousbuilders.com/#/schema/logo/image/","url":"https://www.gloriousbuilders.com/wp-content/uploads/2020/06/Glorius-Builders-Logo-scaled.jpg","contentUrl":"https://www.gloriousbuilders.com/wp-content/uploads/2020/06/Glorius-Builders-Logo-scaled.jpg","width":1920,"height":649,"caption":"Glorious Builders Construction Company Lahore"},"image":{"@id":"https://www.gloriousbuilders.com/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/GloriousBuildersOfficial","https://x.com/GBuildersLHR","https://www.linkedin.com/company/gloriousbuilders","https://www.instagram.com/gloriousbuilders/","https://www.youtube.com/@GloriousBuilders"]},{"@type":"Person","@id":"https://www.gloriousbuilders.com/#/schema/person/da29264d284e3fd08cf4113da73d4e46","name":"Glorious Builders","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.gloriousbuilders.com/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/54a1fba8de8ce6bfd748dc686d94db9c?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/54a1fba8de8ce6bfd748dc686d94db9c?s=96&d=mm&r=g","caption":"Glorious Builders"},"description":"DHA Construction Company in Lahore Get Direction Bahria Town Construction Company in Lahore Get Direction","sameAs":["https://www.gloriousbuilders.com"],"url":"https://www.gloriousbuilders.com/author/gbadmin/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+
+
+<link rel="alternate" type="application/rss+xml" title="Glorious Builders-One of the Best Construction Companies in Pakistan &raquo; Feed" href="https://www.gloriousbuilders.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Glorious Builders-One of the Best Construction Companies in Pakistan &raquo; Comments Feed" href="https://www.gloriousbuilders.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Glorious Builders-One of the Best Construction Companies in Pakistan &raquo; Benefits Of Building a Custom House in Lahore Comments Feed" href="https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/feed/" />
+<link data-minify="1" rel='stylesheet' id='ht_ctc_main_css-css' href='https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/plugins/click-to-chat-for-whatsapp/new/inc/assets/css/main.css?ver=1722242307' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel='stylesheet' id='contact-form-7-css' href='https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=1722242307' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='grw-public-main-css-css' href='https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/plugins/widget-google-reviews/assets/css/public-main.css?ver=1722242307' type='text/css' media='all' />
+
+<link data-minify="1" rel='stylesheet' id='bootstrap-css' href='https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/themes/theratio/css/bootstrap.css?ver=1722242307' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='theratio-awesome-font-css' href='https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/themes/theratio/css/font-awesome.min.css?ver=1722242307' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='theratio-flaticon-font-css' href='https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/themes/theratio/css/flaticon.css?ver=1722242307' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='lightgallery-css' href='https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/themes/theratio/css/lightgallery.css?ver=1722242307' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='swiper-css' href='https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=1722242307' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='theratio-style-css' href='https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/themes/theratio-child/style.css?ver=1722242307' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://www.gloriousbuilders.com/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.23.1' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-12-css' href='https://www.gloriousbuilders.com/wp-content/uploads/elementor/css/post-12.css?ver=1722242306' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-pro-css' href='https://www.gloriousbuilders.com/wp-content/plugins/elementor-pro/assets/css/frontend-lite.min.css?ver=3.18.1' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-global-css' href='https://www.gloriousbuilders.com/wp-content/uploads/elementor/css/global.css?ver=1722242307' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-9163-css' href='https://www.gloriousbuilders.com/wp-content/uploads/elementor/css/post-9163.css?ver=1722269838' type='text/css' media='all' />
+<style id='rocket-lazyload-inline-css' type='text/css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://www.gloriousbuilders.com/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="theratio_scripts-js-extra">
+/* <![CDATA[ */
+var theratio_loadmore_params = {"ajaxurl":"https:\/\/www.gloriousbuilders.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/themes/theratio/js/myloadmore.js?ver=1717857456" id="theratio_scripts-js" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer="defer" src="https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/plugins/widget-google-reviews/assets/js/public-main.js?ver=1717857456" id="grw-public-main-js-js"></script>
+<link rel="https://api.w.org/" href="https://www.gloriousbuilders.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.gloriousbuilders.com/wp-json/wp/v2/posts/9163" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.gloriousbuilders.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.6.1" />
+<link rel='shortlink' href='https://www.gloriousbuilders.com/?p=9163' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.gloriousbuilders.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.gloriousbuilders.com%2Fbenefits-of-building-a-custom-house-in-lahore%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.gloriousbuilders.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.gloriousbuilders.com%2Fbenefits-of-building-a-custom-house-in-lahore%2F&#038;format=xml" />
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+				(function(c,l,a,r,i,t,y){
+					c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;
+					t.src="https://www.clarity.ms/tag/"+i+"?ref=wordpress";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+				})(window, document, "clarity", "script", "mps0w5lp0n");
+		</script>
+		<link rel="pingback" href="https://www.gloriousbuilders.com/xmlrpc.php"><meta name="generator" content="Elementor 3.23.1; features: e_optimized_css_loading, e_font_icon_svg, e_lazyload; settings: css_print_method-external, google_font-disabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<meta name="generator" content="Powered by Slider Revolution 6.5.31 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+<style type="text/css" id="sns_global_styles">#contruction-type, #plot-size {
+	width: 100%;
+  	height: 45px;
+  	padding-left: 5px;
+   	border: 0px;
+  	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	font-size: 14px;
+}
+
+.ot-tabs .tab-link.current, .ot-tabs .tab-link:hover {
+    border-color: #CA905B;
+    color: #1a1a1a;
+}
+@media (max-width:480px)  {
+  	#mobile-footer-logo {
+  		padding-left: 25px;
+  	}
+	#mobile-footer-address {
+    	margin-top: 25px;
+		padding: 25px;
+	}  
+}
+</style><link rel="icon" href="https://www.gloriousbuilders.com/wp-content/uploads/2022/02/cropped-favicon-150x150.png" sizes="32x32" />
+<link rel="icon" href="https://www.gloriousbuilders.com/wp-content/uploads/2022/02/cropped-favicon-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.gloriousbuilders.com/wp-content/uploads/2022/02/cropped-favicon-300x300.png" />
+<meta name="msapplication-TileImage" content="https://www.gloriousbuilders.com/wp-content/uploads/2022/02/cropped-favicon-300x300.png" />
+<script type="rocketlazyloadscript">function setREVStartSize(e){
+			//window.requestAnimationFrame(function() {
+				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;
+				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;
+				try {
+					var pw = document.getElementById(e.c).parentNode.offsetWidth,
+						newh;
+					pw = pw===0 || isNaN(pw) || (e.l=="fullwidth" || e.layout=="fullwidth") ? window.RSIW : pw;
+					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
+					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
+					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
+					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
+					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
+					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
+					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);
+					if(e.layout==="fullscreen" || e.l==="fullscreen")
+						newh = Math.max(e.mh,window.RSIH);
+					else{
+						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];
+						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
+											
+						var nl = new Array(e.rl.length),
+							ix = 0,
+							sl;
+						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;
+						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
+						sl = nl[0];
+						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}
+						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);
+						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+					}
+					var el = document.getElementById(e.c);
+					if (el!==null && el) el.style.height = newh+"px";
+					el = document.getElementById(e.c+"_wrapper");
+					if (el!==null && el) {
+						el.style.height = newh+"px";
+						el.style.display = "block";
+					}
+				} catch(e){
+					console.log("Failure at Presize of Slider:" + e)
+				}
+			//});
+		  };</script>
+		<style type="text/css" id="wp-custom-css">
+			a { 
+	color: #D2691E; 
+}
+.wp-google-name a span {
+    color: #fff !important;
+}
+.imgcarosule img{
+height: 300px !important;
+object-fit: cover !important;
+object-position: center !important
+}
+.icon-box-title a{
+	color:#1a1a1a !important;
+}
+.icon-box--bg-img:hover .icon-box-title a {
+    color: #fff !important;
+}
+.elementor-accordion .elementor-accordion-item{
+border-left: 0px !important;
+border-right: 0px !important;
+border-top: 0px !important;
+}
+
+/** Start Block Kit CSS: 71-3-d415519effd9e11f35d2438c58ea7ebf **/
+
+.envato-block__preview{overflow: visible;}
+
+/** End Block Kit CSS: 71-3-d415519effd9e11f35d2438c58ea7ebf **/
+
+
+
+/** Start Block Kit CSS: 144-3-3a7d335f39a8579c20cdf02f8d462582 **/
+
+.envato-block__preview{overflow: visible;}
+
+/* Envato Kit 141 Custom Styles - Applied to the element under Advanced */
+
+.elementor-headline-animation-type-drop-in .elementor-headline-dynamic-wrapper{
+	text-align: center;
+}
+.envato-kit-141-top-0 h1,
+.envato-kit-141-top-0 h2,
+.envato-kit-141-top-0 h3,
+.envato-kit-141-top-0 h4,
+.envato-kit-141-top-0 h5,
+.envato-kit-141-top-0 h6,
+.envato-kit-141-top-0 p {
+	margin-top: 0;
+}
+
+.envato-kit-141-newsletter-inline .elementor-field-textual.elementor-size-md {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+.envato-kit-141-bottom-0 p {
+	margin-bottom: 0;
+}
+
+.envato-kit-141-bottom-8 .elementor-price-list .elementor-price-list-item .elementor-price-list-header {
+	margin-bottom: .5rem;
+}
+
+.envato-kit-141.elementor-widget-testimonial-carousel.elementor-pagination-type-bullets .swiper-container {
+	padding-bottom: 52px;
+}
+
+.envato-kit-141-display-inline {
+	display: inline-block;
+}
+
+.envato-kit-141 .elementor-slick-slider ul.slick-dots {
+	bottom: -40px;
+}
+
+/** End Block Kit CSS: 144-3-3a7d335f39a8579c20cdf02f8d462582 **/
+
+/* own css */
+.page-header{
+	height:200px;
+}
+.page-title{
+	font-size:50px;
+	font-weight: 600;
+}
+.page-id-14521 .imgcarosule img {
+    height: 350px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+/* end css  */		</style>
+		<style id="kirki-inline-styles">.page-header{background-image:url("https://www.gloriousbuilders.com/wp-content/uploads/2022/03/bahria-town-construction-company2.jpg");}body, .elementor-element .elementor-widget-text-editor, .elementor-element .elementor-widget-icon-list .elementor-icon-list-item{color:#555555;}h1, .elementor-widget.elementor-widget-heading h1.elementor-heading-title{color:#1a1a1a;}h2, .elementor-widget.elementor-widget-heading h2.elementor-heading-title{color:#1a1a1a;}h3, .elementor-widget.elementor-widget-heading h3.elementor-heading-title{color:#1a1a1a;}h4, .elementor-widget.elementor-widget-heading h4.elementor-heading-title{color:#1a1a1a;}h5, .elementor-widget.elementor-widget-heading h5.elementor-heading-title{color:#1a1a1a;}h6, .elementor-widget.elementor-widget-heading h6.elementor-heading-title{color:#1a1a1a;}@media (max-width: 767px){}@media (min-width: 768px) and (max-width: 1024px){}@media (min-width: 1024px){}/* vietnamese */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.gloriousbuilders.com/wp-content/fonts/josefin-sans/Qw3PZQNVED7rKGKxtqIqX5E-AVSJrOCfjY46_DjQbMlhLzTs.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.gloriousbuilders.com/wp-content/fonts/josefin-sans/Qw3PZQNVED7rKGKxtqIqX5E-AVSJrOCfjY46_DjQbMhhLzTs.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.gloriousbuilders.com/wp-content/fonts/josefin-sans/Qw3PZQNVED7rKGKxtqIqX5E-AVSJrOCfjY46_DjQbMZhLw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}/* vietnamese */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.gloriousbuilders.com/wp-content/fonts/josefin-sans/Qw3PZQNVED7rKGKxtqIqX5E-AVSJrOCfjY46_DjQbMlhLzTs.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.gloriousbuilders.com/wp-content/fonts/josefin-sans/Qw3PZQNVED7rKGKxtqIqX5E-AVSJrOCfjY46_DjQbMhhLzTs.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.gloriousbuilders.com/wp-content/fonts/josefin-sans/Qw3PZQNVED7rKGKxtqIqX5E-AVSJrOCfjY46_DjQbMZhLw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}/* vietnamese */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.gloriousbuilders.com/wp-content/fonts/josefin-sans/Qw3PZQNVED7rKGKxtqIqX5E-AVSJrOCfjY46_DjQbMlhLzTs.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.gloriousbuilders.com/wp-content/fonts/josefin-sans/Qw3PZQNVED7rKGKxtqIqX5E-AVSJrOCfjY46_DjQbMhhLzTs.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.gloriousbuilders.com/wp-content/fonts/josefin-sans/Qw3PZQNVED7rKGKxtqIqX5E-AVSJrOCfjY46_DjQbMZhLw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}</style><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><style id="wpforms-css-vars-root">
+				:root {
+					--wpforms-field-border-radius: 3px;
+--wpforms-field-border-style: solid;
+--wpforms-field-border-size: 1px;
+--wpforms-field-background-color: #ffffff;
+--wpforms-field-border-color: rgba( 0, 0, 0, 0.25 );
+--wpforms-field-border-color-spare: rgba( 0, 0, 0, 0.25 );
+--wpforms-field-text-color: rgba( 0, 0, 0, 0.7 );
+--wpforms-field-menu-color: #ffffff;
+--wpforms-label-color: rgba( 0, 0, 0, 0.85 );
+--wpforms-label-sublabel-color: rgba( 0, 0, 0, 0.55 );
+--wpforms-label-error-color: #d63637;
+--wpforms-button-border-radius: 3px;
+--wpforms-button-border-style: none;
+--wpforms-button-border-size: 1px;
+--wpforms-button-background-color: #066aab;
+--wpforms-button-border-color: #066aab;
+--wpforms-button-text-color: #ffffff;
+--wpforms-page-break-color: #066aab;
+--wpforms-background-image: none;
+--wpforms-background-position: center center;
+--wpforms-background-repeat: no-repeat;
+--wpforms-background-size: cover;
+--wpforms-background-width: 100px;
+--wpforms-background-height: 100px;
+--wpforms-background-color: rgba( 0, 0, 0, 0 );
+--wpforms-background-url: none;
+--wpforms-container-padding: 0px;
+--wpforms-container-border-style: none;
+--wpforms-container-border-width: 1px;
+--wpforms-container-border-color: #000000;
+--wpforms-container-border-radius: 3px;
+--wpforms-field-size-input-height: 43px;
+--wpforms-field-size-input-spacing: 15px;
+--wpforms-field-size-font-size: 16px;
+--wpforms-field-size-line-height: 19px;
+--wpforms-field-size-padding-h: 14px;
+--wpforms-field-size-checkbox-size: 16px;
+--wpforms-field-size-sublabel-spacing: 5px;
+--wpforms-field-size-icon-size: 1;
+--wpforms-label-size-font-size: 16px;
+--wpforms-label-size-line-height: 19px;
+--wpforms-label-size-sublabel-font-size: 14px;
+--wpforms-label-size-sublabel-line-height: 17px;
+--wpforms-button-size-font-size: 17px;
+--wpforms-button-size-height: 41px;
+--wpforms-button-size-padding-h: 15px;
+--wpforms-button-size-margin-top: 10px;
+--wpforms-container-shadow-size-box-shadow: none;
+
+				}
+			</style>	
+	<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Glorious Builders Construction Grey Structure and Renovation Company",
+    "alternateName": ["Construction company in Pakistan", "grey structure company in Pakistan", "renovation company in Pakistan"],
+    "url": "https://www.gloriousbuilders.com/"
+  }
+	</script>
+	
+	
+</head>
+
+<body class="post-template-default single single-post postid-9163 single-format-standard header-horizontal elementor-default elementor-kit-12 elementor-page elementor-page-9163">
+
+<div id="page" class="site">
+
+<!-- #site-header-open -->
+<header id="site-header" class="site-header header-static">
+
+    <!-- #header-desktop-open -->
+    
+    <div class="header-desktop">		<div data-elementor-type="wp-post" data-elementor-id="3616" class="elementor elementor-3616" data-elementor-post-type="ot_header_builders">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-2033b20 elementor-section-height-min-height is-fixed elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="2033b20" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4422cd0 ot-flex-column-vertical" data-id="4422cd0" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-036c4ab elementor-icon-list--layout-inline elementor-align-left elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="036c4ab" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+			<link rel="stylesheet" href="https://www.gloriousbuilders.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css">		<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="tel:+923239999450">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-phone-alt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">+92 (323) 9999 450</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="mailto:cc@gloriousbuilders.com">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-envelope" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">cc@gloriousbuilders.com</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-e5448e6 ot-flex-column-vertical" data-id="e5448e6" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2705c71 e-grid-align-right elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="2705c71" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.23.0 - 15-07-2024 */
+.elementor-widget-social-icons.elementor-grid-0 .elementor-widget-container,.elementor-widget-social-icons.elementor-grid-mobile-0 .elementor-widget-container,.elementor-widget-social-icons.elementor-grid-tablet-0 .elementor-widget-container{line-height:1;font-size:0}.elementor-widget-social-icons:not(.elementor-grid-0):not(.elementor-grid-tablet-0):not(.elementor-grid-mobile-0) .elementor-grid{display:inline-grid}.elementor-widget-social-icons .elementor-grid{grid-column-gap:var(--grid-column-gap,5px);grid-row-gap:var(--grid-row-gap,5px);grid-template-columns:var(--grid-template-columns);justify-content:var(--justify-content,center);justify-items:var(--justify-content,center)}.elementor-icon.elementor-social-icon{font-size:var(--icon-size,25px);line-height:var(--icon-size,25px);width:calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em));height:calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em))}.elementor-social-icon{--e-social-icon-icon-color:#fff;display:inline-flex;background-color:#69727d;align-items:center;justify-content:center;text-align:center;cursor:pointer}.elementor-social-icon i{color:var(--e-social-icon-icon-color)}.elementor-social-icon svg{fill:var(--e-social-icon-icon-color)}.elementor-social-icon:last-child{margin:0}.elementor-social-icon:hover{opacity:.9;color:#fff}.elementor-social-icon-android{background-color:#a4c639}.elementor-social-icon-apple{background-color:#999}.elementor-social-icon-behance{background-color:#1769ff}.elementor-social-icon-bitbucket{background-color:#205081}.elementor-social-icon-codepen{background-color:#000}.elementor-social-icon-delicious{background-color:#39f}.elementor-social-icon-deviantart{background-color:#05cc47}.elementor-social-icon-digg{background-color:#005be2}.elementor-social-icon-dribbble{background-color:#ea4c89}.elementor-social-icon-elementor{background-color:#d30c5c}.elementor-social-icon-envelope{background-color:#ea4335}.elementor-social-icon-facebook,.elementor-social-icon-facebook-f{background-color:#3b5998}.elementor-social-icon-flickr{background-color:#0063dc}.elementor-social-icon-foursquare{background-color:#2d5be3}.elementor-social-icon-free-code-camp,.elementor-social-icon-freecodecamp{background-color:#006400}.elementor-social-icon-github{background-color:#333}.elementor-social-icon-gitlab{background-color:#e24329}.elementor-social-icon-globe{background-color:#69727d}.elementor-social-icon-google-plus,.elementor-social-icon-google-plus-g{background-color:#dd4b39}.elementor-social-icon-houzz{background-color:#7ac142}.elementor-social-icon-instagram{background-color:#262626}.elementor-social-icon-jsfiddle{background-color:#487aa2}.elementor-social-icon-link{background-color:#818a91}.elementor-social-icon-linkedin,.elementor-social-icon-linkedin-in{background-color:#0077b5}.elementor-social-icon-medium{background-color:#00ab6b}.elementor-social-icon-meetup{background-color:#ec1c40}.elementor-social-icon-mixcloud{background-color:#273a4b}.elementor-social-icon-odnoklassniki{background-color:#f4731c}.elementor-social-icon-pinterest{background-color:#bd081c}.elementor-social-icon-product-hunt{background-color:#da552f}.elementor-social-icon-reddit{background-color:#ff4500}.elementor-social-icon-rss{background-color:#f26522}.elementor-social-icon-shopping-cart{background-color:#4caf50}.elementor-social-icon-skype{background-color:#00aff0}.elementor-social-icon-slideshare{background-color:#0077b5}.elementor-social-icon-snapchat{background-color:#fffc00}.elementor-social-icon-soundcloud{background-color:#f80}.elementor-social-icon-spotify{background-color:#2ebd59}.elementor-social-icon-stack-overflow{background-color:#fe7a15}.elementor-social-icon-steam{background-color:#00adee}.elementor-social-icon-stumbleupon{background-color:#eb4924}.elementor-social-icon-telegram{background-color:#2ca5e0}.elementor-social-icon-threads{background-color:#000}.elementor-social-icon-thumb-tack{background-color:#1aa1d8}.elementor-social-icon-tripadvisor{background-color:#589442}.elementor-social-icon-tumblr{background-color:#35465c}.elementor-social-icon-twitch{background-color:#6441a5}.elementor-social-icon-twitter{background-color:#1da1f2}.elementor-social-icon-viber{background-color:#665cac}.elementor-social-icon-vimeo{background-color:#1ab7ea}.elementor-social-icon-vk{background-color:#45668e}.elementor-social-icon-weibo{background-color:#dd2430}.elementor-social-icon-weixin{background-color:#31a918}.elementor-social-icon-whatsapp{background-color:#25d366}.elementor-social-icon-wordpress{background-color:#21759b}.elementor-social-icon-x-twitter{background-color:#000}.elementor-social-icon-xing{background-color:#026466}.elementor-social-icon-yelp{background-color:#af0606}.elementor-social-icon-youtube{background-color:#cd201f}.elementor-social-icon-500px{background-color:#0099e5}.elementor-shape-rounded .elementor-icon.elementor-social-icon{border-radius:10%}.elementor-shape-circle .elementor-icon.elementor-social-icon{border-radius:50%}</style>		<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-animation-pulse-grow elementor-repeater-item-049712d" href="https://twitter.com/GBuildersLHR" target="_blank">
+						<span class="elementor-screen-only">Twitter</span>
+						<svg class="e-font-icon-svg e-fab-twitter" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-animation-pulse-grow elementor-repeater-item-030f11b" href="https://www.facebook.com/GloriousBuildersconstructioncompanypaksitan" target="_blank">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<svg class="e-font-icon-svg e-fab-facebook-f" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin-in elementor-animation-pulse-grow elementor-repeater-item-9c6b4b3" href="https://www.linkedin.com/company/gloriousbuilders" target="_blank">
+						<span class="elementor-screen-only">Linkedin-in</span>
+						<svg class="e-font-icon-svg e-fab-linkedin-in" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-pulse-grow elementor-repeater-item-b977f7f" href="https://www.instagram.com/gloriousbuilders/" target="_blank">
+						<span class="elementor-screen-only">Instagram</span>
+						<svg class="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-animation-pulse-grow elementor-repeater-item-41368df" href="https://www.youtube.com/channel/UCaDHL-pMcLco-I5DYhTDy_w/videos?view_as=subscriber" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<svg class="e-font-icon-svg e-fab-youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-google-plus-g elementor-animation-pulse-grow elementor-repeater-item-bb95b7f" href="https://www.google.com/maps/place/Glorious+Builders+-+Construction+Company+in+Lahore/@31.3672695,74.1847894,17z/data=!3m1!4b1!4m5!3m4!1s0x3918ff7ee45f306f:0x535ee831c18a3952!8m2!3d31.3672695!4d74.1869781" target="_blank">
+						<span class="elementor-screen-only">Google-plus-g</span>
+						<svg class="e-font-icon-svg e-fab-google-plus-g" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M386.061 228.496c1.834 9.692 3.143 19.384 3.143 31.956C389.204 370.205 315.599 448 204.8 448c-106.084 0-192-85.915-192-192s85.916-192 192-192c51.864 0 95.083 18.859 128.611 50.292l-52.126 50.03c-14.145-13.621-39.028-29.599-76.485-29.599-65.484 0-118.92 54.221-118.92 121.277 0 67.056 53.436 121.277 118.92 121.277 75.961 0 104.513-54.745 108.965-82.773H204.8v-66.009h181.261zm185.406 6.437V179.2h-56.001v55.733h-55.733v56.001h55.733v55.733h56.001v-55.733H627.2v-56.001h-55.733z"></path></svg>					</a>
+				</span>
+					</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-08f2603 is-fixed elementor-section-full_width has-lines-vertical elementor-section-height-default elementor-section-height-default no-lines-vertical-center elementor-invisible" data-id="08f2603" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeIn&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-2602685 ot-flex-column-vertical" data-id="2602685" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4afb2ac elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="4afb2ac" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.23.0 - 15-07-2024 */
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>											<a href="https://www.gloriousbuilders.com/">
+							<img fetchpriority="high" width="400" height="135" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20135'%3E%3C/svg%3E" class="attachment-full size-full wp-image-10755" alt="" data-lazy-srcset="https://www.gloriousbuilders.com/wp-content/uploads/2023/10/preloader.webp 400w, https://www.gloriousbuilders.com/wp-content/uploads/2023/10/preloader-300x101.webp 300w, https://www.gloriousbuilders.com/wp-content/uploads/2023/10/preloader-20x7.webp 20w" data-lazy-sizes="(max-width: 400px) 100vw, 400px" data-lazy-src="https://www.gloriousbuilders.com/wp-content/uploads/2023/10/preloader.webp" /><noscript><img fetchpriority="high" width="400" height="135" src="https://www.gloriousbuilders.com/wp-content/uploads/2023/10/preloader.webp" class="attachment-full size-full wp-image-10755" alt="" srcset="https://www.gloriousbuilders.com/wp-content/uploads/2023/10/preloader.webp 400w, https://www.gloriousbuilders.com/wp-content/uploads/2023/10/preloader-300x101.webp 300w, https://www.gloriousbuilders.com/wp-content/uploads/2023/10/preloader-20x7.webp 20w" sizes="(max-width: 400px) 100vw, 400px" /></noscript>								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-ddc22f9 ot-column-items-center ot-flex-column-vertical" data-id="ddc22f9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c7e5e67 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-imenu" data-id="c7e5e67" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="imenu.default">
+				<div class="elementor-widget-container">
+								    	<nav id="site-navigation" class="main-navigation  no-line">			
+					<ul id="primary-menu" class="menu"><li id="menu-item-15482" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-15482"><a href="https://www.gloriousbuilders.com/">Home</a></li>
+<li id="menu-item-7567" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7567"><a href="#">Services</a>
+<ul class="sub-menu">
+	<li id="menu-item-9579" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-9579"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/architecture-interior-design-pakistan/">Architecture &#038; Interior Design</a>
+	<ul class="sub-menu">
+		<li id="menu-item-4737" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4737"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/architects-in-lahore/">Architectural Design</a></li>
+		<li id="menu-item-3139" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3139"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/structural-drawings/">Structural Drawings</a></li>
+		<li id="menu-item-3143" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3143"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/interior-designer-in-lahore/">Interior Designs Studio</a></li>
+	</ul>
+</li>
+	<li id="menu-item-9577" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-9577"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/construction-company-in-lahore/">Construction</a>
+	<ul class="sub-menu">
+		<li id="menu-item-3140" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3140"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/grey-structure-construction/">Grey Structure</a></li>
+		<li id="menu-item-3142" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3142"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/turn-key-basis-construction/">Turn Key Basis Construction</a></li>
+	</ul>
+</li>
+	<li id="menu-item-9578" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9578"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/renovation-remodeling-pakistan/">Renovation &#038; Remodeling</a></li>
+</ul>
+</li>
+<li id="menu-item-5306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5306"><a href="https://www.gloriousbuilders.com/projects-old/">Projects</a></li>
+<li id="menu-item-2923" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-2923"><a href="https://www.gloriousbuilders.com/blog/">Blogs</a></li>
+<li id="menu-item-2931" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2931"><a href="https://www.gloriousbuilders.com/about-us/">About Us</a></li>
+<li id="menu-item-2945" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2945"><a href="https://www.gloriousbuilders.com/contact-us/">Contact Us</a></li>
+</ul>				</nav>
+		    	    		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-83f6afd ot-column-items-center ot-flex-column-vertical" data-id="83f6afd" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-90c836b elementor-align-center elementor-widget__width-initial elementor-widget elementor-widget-button" data-id="90c836b" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-sm" href="https://www.gloriousbuilders.com/contact-us/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Get A Quote</span>
+					</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		</div>    
+    <!-- #header-desktop-close -->
+
+    <!-- #header-mobile-open -->
+    
+    <div class="header-mobile">		<div data-elementor-type="wp-post" data-elementor-id="3777" class="elementor elementor-3777" data-elementor-post-type="ot_header_builders">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-afb0fce elementor-section-full_width is-fixed elementor-section-height-default elementor-section-height-default" data-id="afb0fce" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-61110df ot-flex-column-vertical" data-id="61110df" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2e78aab elementor-widget elementor-widget-image" data-id="2e78aab" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://www.gloriousbuilders.com/">
+							<img width="401" height="130" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20401%20130'%3E%3C/svg%3E" class="attachment-full size-full wp-image-4545" alt="construction companies lahore" data-lazy-srcset="https://www.gloriousbuilders.com/wp-content/uploads/2022/02/GloriusBuildersLogoWhite.png 401w, https://www.gloriousbuilders.com/wp-content/uploads/2022/02/GloriusBuildersLogoWhite-300x97.png 300w" data-lazy-sizes="(max-width: 401px) 100vw, 401px" data-lazy-src="https://www.gloriousbuilders.com/wp-content/uploads/2022/02/GloriusBuildersLogoWhite.png" /><noscript><img width="401" height="130" src="https://www.gloriousbuilders.com/wp-content/uploads/2022/02/GloriusBuildersLogoWhite.png" class="attachment-full size-full wp-image-4545" alt="construction companies lahore" srcset="https://www.gloriousbuilders.com/wp-content/uploads/2022/02/GloriusBuildersLogoWhite.png 401w, https://www.gloriousbuilders.com/wp-content/uploads/2022/02/GloriusBuildersLogoWhite-300x97.png 300w" sizes="(max-width: 401px) 100vw, 401px" /></noscript>								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-b46e93d ot-flex-column-horizontal" data-id="b46e93d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f90d314 elementor-widget-mobile__width-initial elementor-widget elementor-widget-button" data-id="f90d314" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-xs" href="https://www.gloriousbuilders.com/contact-us/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Get A Quote</span>
+					</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-6e322cc elementor-widget elementor-widget-imenu_mobile" data-id="6e322cc" data-element_type="widget" data-widget_type="imenu_mobile.default">
+				<div class="elementor-widget-container">
+						
+	    	<div class="octf-menu-mobile octf-cta-header">
+				<div id="mmenu-toggle" class="mmenu-toggle">
+					<button aria-label="Mobile Menu"><i class="ot-flaticon-menu"></i></button>
+				</div>
+				<div class="site-overlay mmenu-overlay"></div>
+				<div id="mmenu-wrapper" class="mmenu-wrapper on-right">
+					<div class="mmenu-inner">
+						<a class="mmenu-close" href="#" aria-label="Close Mobile Menu"><i class="ot-flaticon-right-arrow"></i></a>
+						<div class="mobile-nav">
+							<ul id="menu-main-menu" class="mobile_mainmenu none-style"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-15482"><a href="https://www.gloriousbuilders.com/">Home</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7567"><a href="#">Services</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-9579"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/architecture-interior-design-pakistan/">Architecture &#038; Interior Design</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4737"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/architects-in-lahore/">Architectural Design</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3139"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/structural-drawings/">Structural Drawings</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3143"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/interior-designer-in-lahore/">Interior Designs Studio</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-9577"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/construction-company-in-lahore/">Construction</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3140"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/grey-structure-construction/">Grey Structure</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3142"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/turn-key-basis-construction/">Turn Key Basis Construction</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9578"><a href="https://www.gloriousbuilders.com/construction-services-pakistan/renovation-remodeling-pakistan/">Renovation &#038; Remodeling</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5306"><a href="https://www.gloriousbuilders.com/projects-old/">Projects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-2923"><a href="https://www.gloriousbuilders.com/blog/">Blogs</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2931"><a href="https://www.gloriousbuilders.com/about-us/">About Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2945"><a href="https://www.gloriousbuilders.com/contact-us/">Contact Us</a></li>
+</ul>						</div>   	
+					</div>   	
+				</div>
+			</div>
+	    		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		</div>    <!-- #header-mobile-close -->
+
+</header>
+<!-- #site-header-close -->
+<!-- #side-panel-open -->
+<!-- #side-panel-close --><!-- #site-content-open -->
+<div id="content" class="site-content">
+	        
+            <div data-bg="https://www.gloriousbuilders.com/wp-content/uploads/2022/03/bahria-town-construction-company2.jpg" class="page-header dtable text-center header-static rocket-lazyload"  style="" >
+                <div class="dcell">
+                    <div class="container">
+                                                    <h1 class="page-title">Blog</h1>
+                        <ul id="breadcrumbs" class="breadcrumbs none-style"><li><a href="https://www.gloriousbuilders.com">Home</a></li><li><a href="https://www.gloriousbuilders.com/blog/">Blogs</a></li><li class="active">Benefits Of Building a Custom House in Lahore</li></ul>    
+                            </div>
+                </div>
+            </div>
+        	<div class="entry-content">
+		<div class="container">
+			<div class="row">
+				<div id="primary" class="content-area col-lg-9 col-md-9 col-sm-12 col-xs-12">
+					<main id="main" class="site-main">
+						
+					
+ 
+
+<article id="post-9163" class="blog-post post-box post-9163 post type-post status-publish format-standard has-post-thumbnail hentry category-construction">
+    
+            <div class="entry-media post-cat-abs">
+                <img width="2048" height="1152" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202048%201152'%3E%3C/svg%3E" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Best Construction Company in Lahore" decoding="async" data-lazy-srcset="https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore.jpg 2048w, https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore-300x169.jpg 300w, https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore-1024x576.jpg 1024w, https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore-768x432.jpg 768w, https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore-1536x864.jpg 1536w" data-lazy-sizes="(max-width: 2048px) 100vw, 2048px" data-lazy-src="https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore.jpg" /><noscript><img width="2048" height="1152" src="https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Best Construction Company in Lahore" decoding="async" srcset="https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore.jpg 2048w, https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore-300x169.jpg 300w, https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore-1024x576.jpg 1024w, https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore-768x432.jpg 768w, https://www.gloriousbuilders.com/wp-content/uploads/2022/11/custom-house-construction-in-lahore-1536x864.jpg 1536w" sizes="(max-width: 2048px) 100vw, 2048px" /></noscript>                <div class="post-cat"><div class="posted-in"><a href="https://www.gloriousbuilders.com/category/construction/" rel="category tag">Construction</a></div></div>            </div>
+            
+            <div class="inner-post">
+        <header class="entry-header">
+
+                        <div class="entry-meta">
+                <span class="posted-on"><a href="https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/" rel="bookmark"><time class="entry-date published" datetime="2022-11-24T01:40:59+05:00">24/11/2022</time></a></span><span class="comment-num"><a href="https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/#respond">0 Comments</a></span>            </div><!-- .entry-meta -->
+            
+            <h3 class="entry-title">Benefits Of Building a Custom House in Lahore</h3>
+        </header><!-- .entry-header -->
+
+        <div class="entry-summary">
+
+            		<div data-elementor-type="wp-post" data-elementor-id="9163" class="elementor elementor-9163" data-elementor-post-type="post">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-2ca278f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2ca278f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-c95a296 ot-flex-column-vertical" data-id="c95a296" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3055d0a elementor-widget elementor-widget-text-editor" data-id="3055d0a" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.23.0 - 15-07-2024 */
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				<p>Whenever you do a thing with your passion it will always keep you heartfelt gives you happiness and retain energy in life. Building your own house is synonymous with dream interpretation so everyone wants it according to his/her will like how many rooms and bathrooms you want in your house. where is your kitchen lye and how many windows do you need? These facilities are only available in Custom houses which you decide and design by yourself or with your designers in every single corner of your dwelling place. So, if you are thinking to build or buying a new house you should go with the custom house as it always gives you the best results. House should always be according to your needs and taste you can do anything you wish in that so just design and customize it according to you as you want to enjoy your life there with your family.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-11f2bf4 elementor-widget elementor-widget-heading" data-id="11f2bf4" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.23.0 - 15-07-2024 */
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h3 class="elementor-heading-title elementor-size-default">Custom house VS Existing Homebuying: </h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d7ea94d elementor-widget elementor-widget-text-editor" data-id="d7ea94d" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Many people, when thinking about a house, are faced with the dilemma of whether to build a custom house or buy one that is already built. I think if someone has time and can go with the custom house, they should do it because it is always better to build a house than buy as you can do whatever you want with it Complete customization, floor, roofs, Rooms, Bathrooms, windows, ventilation and although a single brick you use according to your desire. The custom house is always more reliable When you choose to purchase an existing house, sometimes what at first glance seems to be a solid construction turns out to be a money hole. You can guarantee that all materials utilized in the construction of your custom house are of the finest quality. Similarly, there are many parts that go to the customs house Budget saving as you cannot have to give any commission for look after work and some other things. Specific energy and efficiency regulations that do not apply to other homes can be created and met when constructing a custom home. On the other hand, buying an existing house has some good aspects like it saves your time, it is always ready to shift, and saving your energy but it’s your own house you should go with the best-custom house for you and your family this is much better than relying on something existing.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-7c13146 elementor-align-center elementor-widget elementor-widget-ibutton" data-id="7c13146" data-element_type="widget" data-widget_type="ibutton.default">
+				<div class="elementor-widget-container">
+					<div class="ot-button">
+			<a href="http://wa.me/923239999450" class="octf-btn octf-btn-dark">Custom Home Construction wanted? Get your offer now</a>
+	    </div>
+	    		</div>
+				</div>
+				<div class="elementor-element elementor-element-658d81f elementor-widget elementor-widget-heading" data-id="658d81f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Location of Residence:</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-7948e40 elementor-widget elementor-widget-text-editor" data-id="7948e40" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>The location has a lot to do with which place or community you are living in. You may select the location where you feel most at ease, whether you choose to live in a town setting, a village, near a river, or on the edge of the city. Locating the ideal piece of land is more flexible when you build a personal house. Finding a home that is structurally sound and situated in a desirable community is more difficult when buying an existing property. So, it is better to go with your own comfort and desire just find a good location where you want to construct your house and then go with that.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-2b869a5 elementor-widget elementor-widget-heading" data-id="2b869a5" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Benefits of Custom House:</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-25d3c7b elementor-widget elementor-widget-text-editor" data-id="25d3c7b" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>You should go with the custom house as it has many benefits and gives you the freedom to play in your own space in designing with the creativity of your mind and need. There are many benefits of the custom house but a few are</p><ul><li>Location of your own choice</li><li>Structure of building</li><li>Unique Style of House</li><li>Cost friendly</li><li>Usage of best quality material</li><li>According to your needs</li><li>Comfortable and peaceful residency</li></ul>						</div>
+				</div>
+				<div class="elementor-element elementor-element-a8360db elementor-widget elementor-widget-heading" data-id="a8360db" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Construction companies in Lahore that can build custom houses:</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-c5fa255 elementor-widget elementor-widget-text-editor" data-id="c5fa255" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Numerous well-known construction companies work in Lahore. They collaborate with you to get your ideas and also give you the best suggestions after confirmation of the design they start work with their experts who create distinctive living and working places with great attention to detail. They have been able to create trends in Pakistan&#8217;s building industry, particularly in Lahore, because of their innovative construction techniques and distinctive interior designs.</p><p><a href="http://www.gloriousbuilders.com">Glorious Builders</a> is working in Lahore and Islamabad and can give the best interpretation of your dreams. So, if you are thinking of building your own house, then contact a good construction company share your ideas with them, and get their suggestions to decide on the best custom design and let constructors materialize that idea into the best execution.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-4d6eacb elementor-align-center elementor-widget elementor-widget-ibutton" data-id="4d6eacb" data-element_type="widget" data-widget_type="ibutton.default">
+				<div class="elementor-widget-container">
+					<div class="ot-button">
+			<a href="http://wa.me/923239999450" class="octf-btn octf-btn-dark">Custom Home Construction wanted? Get your offer now</a>
+	    </div>
+	    		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		
+        </div><!-- .entry-content -->
+        <div class="entry-footer clearfix">
+                        <div class="share-post"><a class="face" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/" title="Facebook"><i class="fab fa-facebook-f"></i></a><a class="pint" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/&description=Benefits Of Building a Custom House in Lahore" title="Pinterest"><i class="fab fa-pinterest-p"></i></a><a class="linked" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.gloriousbuilders.com/benefits-of-building-a-custom-house-in-lahore/&title=Benefits Of Building a Custom House in Lahore&summary=https://www.gloriousbuilders.com&source=Glorious Builders-One of the Best Construction Companies in Pakistan" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a></div>        </div>
+        <div class="author-bio"><div class="author-image"><img alt='' src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20132%20132'%3E%3C/svg%3E" data-lazy-srcset='https://secure.gravatar.com/avatar/54a1fba8de8ce6bfd748dc686d94db9c?s=264&#038;d=mm&#038;r=g 2x' class='avatar avatar-132 photo' height='132' width='132' decoding='async' data-lazy-src="https://secure.gravatar.com/avatar/54a1fba8de8ce6bfd748dc686d94db9c?s=132&#038;d=mm&#038;r=g"/><noscript><img alt='' src='https://secure.gravatar.com/avatar/54a1fba8de8ce6bfd748dc686d94db9c?s=132&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/54a1fba8de8ce6bfd748dc686d94db9c?s=264&#038;d=mm&#038;r=g 2x' class='avatar avatar-132 photo' height='132' width='132' decoding='async'/></noscript></div><div data-bg="https://www.gloriousbuilders.com/wp-content/themes/theratio/images/bg-author-bio.jpg" class="author-info rocket-lazyload" style=""><h5>Glorious Builders</h5><p class="des">DHA Construction Company in Lahore
+<a href="https://www.google.com/maps/dir//Glorious+Builders+dha/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x391909a76ecca9c9:0x9a692076b7ab137a?sa=X&ved=2ahUKEwjdjOzYu9OCAxU9RPEDHYWCAHsQ9Rd6BQiWARAA" target="_blank" rel="noopener">Get Direction</a>
+<br>
+Bahria Town Construction Company in Lahore
+<a href="https://www.google.com/maps/dir//Glorious+Builders/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3918ff7ee45f306f:0x535ee831c18a3952?sa=X&ved=2ahUKEwjPn4DAu9OCAxX9Q_EDHc-tB3QQ9Rd6BQiYARAA" target="_blank" rel="noopener">Get Direction</a></p><div class="author-socials"></div></div></div>        <div class="post-nav clearfix"><div class="post-prev"><a href="https://www.gloriousbuilders.com/luxury-architects-of-dha-lahore/" rel="prev"><div class="thumb-post-prev"><img width="150" height="150" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20150'%3E%3C/svg%3E" class="attachment-thumbnail size-thumbnail wp-post-image" alt="Architects of DHA Lahore" decoding="async" data-lazy-srcset="https://www.gloriousbuilders.com/wp-content/uploads/2022/11/architectural-designs-150x150.jpg 150w, https://www.gloriousbuilders.com/wp-content/uploads/2022/11/architectural-designs-720x720.jpg 720w" data-lazy-sizes="(max-width: 150px) 100vw, 150px" data-lazy-src="https://www.gloriousbuilders.com/wp-content/uploads/2022/11/architectural-designs-150x150.jpg" /><noscript><img width="150" height="150" src="https://www.gloriousbuilders.com/wp-content/uploads/2022/11/architectural-designs-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="Architects of DHA Lahore" decoding="async" srcset="https://www.gloriousbuilders.com/wp-content/uploads/2022/11/architectural-designs-150x150.jpg 150w, https://www.gloriousbuilders.com/wp-content/uploads/2022/11/architectural-designs-720x720.jpg 720w" sizes="(max-width: 150px) 100vw, 150px" /></noscript></div><div class="info-post-prev"><h6><span class="title-link">Luxury Architects of DHA Lahore</span></h6><span>23/11/2022</span></div></a></div><div class="post-next"><a href="https://www.gloriousbuilders.com/most-important-elements-of-home-interior-design-in-dha-homes-lahore/" rel="next"><div class="thumb-post-next"><img width="150" height="150" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20150'%3E%3C/svg%3E" class="attachment-thumbnail size-thumbnail wp-post-image" alt="Home Interior Design in DHA Homes Lahore" decoding="async" data-lazy-srcset="https://www.gloriousbuilders.com/wp-content/uploads/2022/11/Home-Interior-Design-in-DHA-Homes-Lahore-150x150.jpg 150w, https://www.gloriousbuilders.com/wp-content/uploads/2022/11/Home-Interior-Design-in-DHA-Homes-Lahore-720x720.jpg 720w" data-lazy-sizes="(max-width: 150px) 100vw, 150px" data-lazy-src="https://www.gloriousbuilders.com/wp-content/uploads/2022/11/Home-Interior-Design-in-DHA-Homes-Lahore-150x150.jpg" /><noscript><img width="150" height="150" src="https://www.gloriousbuilders.com/wp-content/uploads/2022/11/Home-Interior-Design-in-DHA-Homes-Lahore-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="Home Interior Design in DHA Homes Lahore" decoding="async" srcset="https://www.gloriousbuilders.com/wp-content/uploads/2022/11/Home-Interior-Design-in-DHA-Homes-Lahore-150x150.jpg 150w, https://www.gloriousbuilders.com/wp-content/uploads/2022/11/Home-Interior-Design-in-DHA-Homes-Lahore-720x720.jpg 720w" sizes="(max-width: 150px) 100vw, 150px" /></noscript></div><div class="info-post-next"><h6><span class="title-link">Most Important Elements of Home Interior Design in DHA Homes Lahore</span></h6><span>24/11/2022</span></div></a></div></div>        <div class="related-posts"><h3>Related Posts</h3><div class="row">    
+    <div class="col-sm-6">
+        <div class="post-box post-item">
+            <div class="post-inner">
+                                <div class="entry-media post-cat-abs">
+                    <a href="https://www.gloriousbuilders.com/new-construction-trends-in-pakistan/"><img width="600" height="437" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20600%20437'%3E%3C/svg%3E" class="attachment-theratio-grid-post-thumbnail size-theratio-grid-post-thumbnail wp-post-image" alt="Construction companies in DHA Lahore" decoding="async" data-lazy-srcset="https://www.gloriousbuilders.com/wp-content/uploads/2022/05/HomeConstructionTrendsInPakistan-1.jpg 600w, https://www.gloriousbuilders.com/wp-content/uploads/2022/05/HomeConstructionTrendsInPakistan-1-300x219.jpg 300w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" data-lazy-src="https://www.gloriousbuilders.com/wp-content/uploads/2022/05/HomeConstructionTrendsInPakistan-1.jpg" /><noscript><img width="600" height="437" src="https://www.gloriousbuilders.com/wp-content/uploads/2022/05/HomeConstructionTrendsInPakistan-1.jpg" class="attachment-theratio-grid-post-thumbnail size-theratio-grid-post-thumbnail wp-post-image" alt="Construction companies in DHA Lahore" decoding="async" srcset="https://www.gloriousbuilders.com/wp-content/uploads/2022/05/HomeConstructionTrendsInPakistan-1.jpg 600w, https://www.gloriousbuilders.com/wp-content/uploads/2022/05/HomeConstructionTrendsInPakistan-1-300x219.jpg 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript></a>
+                    <div class="post-cat"><div class="posted-in"><a href="https://www.gloriousbuilders.com/category/construction/" rel="category tag">Construction</a></div></div>                </div>
+                                <div class="inner-post">
+                    <div class="entry-header">
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="https://www.gloriousbuilders.com/new-construction-trends-in-pakistan/" rel="bookmark"><time class="entry-date published" datetime="2024-07-13T15:03:26+05:00">13/07/2024</time></a></span><span class="byline"><span class="author vcard"><a class="url fn n" href="https://www.gloriousbuilders.com/author/gbadmin/">Glorious Builders</a></span></span>                        </div><!-- .entry-meta -->
+                        
+                        <h5 class="entry-title"><a class="title-link" href="https://www.gloriousbuilders.com/new-construction-trends-in-pakistan/" rel="bookmark">New Construction Trends In Pakistan 2024</a></h5>
+                    </div><!-- .entry-header -->
+
+                    <div class="the-excerpt">
+
+                        Home construction trends in Pakistan are rapidly changed...
+                    </div><!-- .entry-content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+    <div class="col-sm-6">
+        <div class="post-box post-item">
+            <div class="post-inner">
+                                <div class="entry-media post-cat-abs">
+                    <a href="https://www.gloriousbuilders.com/important-structural-elements-of-a-building-construction-in-lahore/"><img width="805" height="628" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20805%20628'%3E%3C/svg%3E" class="attachment-theratio-grid-post-thumbnail size-theratio-grid-post-thumbnail wp-post-image" alt="Most Important Structural Components of a Building Construction in Lahore" decoding="async" data-lazy-src="https://www.gloriousbuilders.com/wp-content/uploads/2022/04/cement-1-805x628.jpg" /><noscript><img width="805" height="628" src="https://www.gloriousbuilders.com/wp-content/uploads/2022/04/cement-1-805x628.jpg" class="attachment-theratio-grid-post-thumbnail size-theratio-grid-post-thumbnail wp-post-image" alt="Most Important Structural Components of a Building Construction in Lahore" decoding="async" /></noscript></a>
+                    <div class="post-cat"><div class="posted-in"><a href="https://www.gloriousbuilders.com/category/construction/" rel="category tag">Construction</a></div></div>                </div>
+                                <div class="inner-post">
+                    <div class="entry-header">
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="https://www.gloriousbuilders.com/important-structural-elements-of-a-building-construction-in-lahore/" rel="bookmark"><time class="entry-date published" datetime="2024-06-28T11:15:52+05:00">28/06/2024</time></a></span><span class="byline"><span class="author vcard"><a class="url fn n" href="https://www.gloriousbuilders.com/author/gbadmin/">Glorious Builders</a></span></span>                        </div><!-- .entry-meta -->
+                        
+                        <h5 class="entry-title"><a class="title-link" href="https://www.gloriousbuilders.com/important-structural-elements-of-a-building-construction-in-lahore/" rel="bookmark">Important Structural Elements of a Building Construction in Lahore</a></h5>
+                    </div><!-- .entry-header -->
+
+                    <div class="the-excerpt">
+
+                        Most Important Structural Components of a Building Construction...
+                    </div><!-- .entry-content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div></div>    </div>
+</article>
+
+					</main><!-- #main -->
+				</div><!-- #primary -->
+				
+				
+<aside id="primary-sidebar" class="widget-area primary-sidebar col-lg-3 col-md-3 col-sm-12 col-xs-12">
+	<section id="search-1" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://www.gloriousbuilders.com/" >
+    <label><span class="screen-reader-text">Search for:</span>
+    <input type="search" class="search-field" placeholder="SEARCH..." value="" name="s" /></label>
+	<button type="submit" class="search-submit"><i class="ot-flaticon-search"></i></button>
+    </form></section><section id="custom_html-2" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget">
+<div class="wpcf7 no-js" id="wpcf7-f5-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/benefits-of-building-a-custom-house-in-lahore/#wpcf7-f5-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="5" />
+<input type="hidden" name="_wpcf7_version" value="5.9.7" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f5-o1" />
+<input type="hidden" name="_wpcf7_container_post" value="0" />
+<input type="hidden" name="_wpcf7_posted_data_hash" value="" />
+<input type="hidden" name="_wpcf7_recaptcha_response" value="" />
+</div>
+<div id="main-form" class="main-form">
+	<h3 style="color: #000; font-weight: 700">Get a Free Consultation
+	</h3>
+	<p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Name *" value="" type="text" name="your-name" /></span>
+	</p>
+	<p><span class="wpcf7-form-control-wrap" data-name="your-email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-text wpcf7-validates-as-email" aria-invalid="false" placeholder="Email" value="" type="email" name="your-email" /></span>
+	</p>
+	<p><span class="wpcf7-form-control-wrap" data-name="tel-523"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" id="phone-number" aria-required="true" aria-invalid="false" placeholder="Contact Number *" value="" type="tel" name="tel-523" /></span>
+	</p>
+	<p><span class="wpcf7-form-control-wrap" data-name="menu-819"><select class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" id="contruction-type" aria-required="true" aria-invalid="false" name="menu-819"><option value="ARCHITECTURAL DRAWINGS">ARCHITECTURAL DRAWINGS</option><option value="INTERIOR DESIGN">INTERIOR DESIGN</option><option value="GREY STRUCTURE CONSTRUCTION">GREY STRUCTURE CONSTRUCTION</option><option value="TURN KEY BASIS CONSTRUCTION">TURN KEY BASIS CONSTRUCTION</option><option value="PROJECT MANAGEMENT">PROJECT MANAGEMENT</option></select></span>
+	</p>
+	<p><span class="wpcf7-form-control-wrap" data-name="menu-636"><select class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" id="plot-size" aria-required="true" aria-invalid="false" name="menu-636"><option value="5 MARLA">5 MARLA</option><option value="10 MARLA">10 MARLA</option><option value="1 KANAL">1 KANAL</option><option value="2 KANAL">2 KANAL</option><option value="4 KANAL">4 KANAL</option></select></span>
+	</p>
+	<p><span class="wpcf7-form-control-wrap" data-name="your-message"><textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Message..." name="your-message"></textarea></span>
+	</p>
+	<p><button type="submit" class="octf-btn" style="background: #CA9D5B; color:#000;">Submit</button>
+	</p>
+</div><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+</div></section><section id="recent_news-1" class="widget widget_recent_news"><h6 class="widget-title">Recent Posts</h6>            <ul class="recent-news clearfix">
+                                                <li class="clearfix"> 
+                                        <div class="thumb">
+                        <a href="https://www.gloriousbuilders.com/5-modern-basement-ideas-in-2024/">
+                            <img width="150" height="150" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20150'%3E%3C/svg%3E" class="attachment-thumbnail size-thumbnail wp-post-image" alt="5 Modern Basement Ideas" decoding="async" data-lazy-srcset="https://www.gloriousbuilders.com/wp-content/uploads/2022/05/Pakistani-Construction-Industry-Faces-Struggles-as-Inflation-Takes-Toll-on-Workers-1-150x150.jpg 150w, https://www.gloriousbuilders.com/wp-content/uploads/2022/05/Pakistani-Construction-Industry-Faces-Struggles-as-Inflation-Takes-Toll-on-Workers-1-720x720.jpg 720w" data-lazy-sizes="(max-width: 150px) 100vw, 150px" data-lazy-src="https://www.gloriousbuilders.com/wp-content/uploads/2022/05/Pakistani-Construction-Industry-Faces-Struggles-as-Inflation-Takes-Toll-on-Workers-1-150x150.jpg" /><noscript><img width="150" height="150" src="https://www.gloriousbuilders.com/wp-content/uploads/2022/05/Pakistani-Construction-Industry-Faces-Struggles-as-Inflation-Takes-Toll-on-Workers-1-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="5 Modern Basement Ideas" decoding="async" srcset="https://www.gloriousbuilders.com/wp-content/uploads/2022/05/Pakistani-Construction-Industry-Faces-Struggles-as-Inflation-Takes-Toll-on-Workers-1-150x150.jpg 150w, https://www.gloriousbuilders.com/wp-content/uploads/2022/05/Pakistani-Construction-Industry-Faces-Struggles-as-Inflation-Takes-Toll-on-Workers-1-720x720.jpg 720w" sizes="(max-width: 150px) 100vw, 150px" /></noscript>                        </a>
+                    </div>
+                                        <div class="entry-header">
+                        <h6>
+                            <a href="https://www.gloriousbuilders.com/5-modern-basement-ideas-in-2024/">5 Modern Basement Ideas In 2024</a>
+                        </h6>
+                                                <span class="post-on">
+                            <span class="entry-date">25/07/2024</span>
+                        </span>
+                                            </div>
+                </li>
+                                                <li class="clearfix"> 
+                                        <div class="thumb">
+                        <a href="https://www.gloriousbuilders.com/tourism-of-northern-areas-of-pakistan-in-summer-season/">
+                            <img width="150" height="150" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20150'%3E%3C/svg%3E" class="attachment-thumbnail size-thumbnail wp-post-image" alt="Tourism of Northern Areas of Pakistan in Summer Season" decoding="async" data-lazy-srcset="https://www.gloriousbuilders.com/wp-content/uploads/2024/07/Tourism-of-Northern-Areas-of-Pakistan-in-Summer-Season-150x150.jpg 150w, https://www.gloriousbuilders.com/wp-content/uploads/2024/07/Tourism-of-Northern-Areas-of-Pakistan-in-Summer-Season-720x720.jpg 720w" data-lazy-sizes="(max-width: 150px) 100vw, 150px" data-lazy-src="https://www.gloriousbuilders.com/wp-content/uploads/2024/07/Tourism-of-Northern-Areas-of-Pakistan-in-Summer-Season-150x150.jpg" /><noscript><img width="150" height="150" src="https://www.gloriousbuilders.com/wp-content/uploads/2024/07/Tourism-of-Northern-Areas-of-Pakistan-in-Summer-Season-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="Tourism of Northern Areas of Pakistan in Summer Season" decoding="async" srcset="https://www.gloriousbuilders.com/wp-content/uploads/2024/07/Tourism-of-Northern-Areas-of-Pakistan-in-Summer-Season-150x150.jpg 150w, https://www.gloriousbuilders.com/wp-content/uploads/2024/07/Tourism-of-Northern-Areas-of-Pakistan-in-Summer-Season-720x720.jpg 720w" sizes="(max-width: 150px) 100vw, 150px" /></noscript>                        </a>
+                    </div>
+                                        <div class="entry-header">
+                        <h6>
+                            <a href="https://www.gloriousbuilders.com/tourism-of-northern-areas-of-pakistan-in-summer-season/">Tourism of Northern Areas of Pakistan in Summer Season</a>
+                        </h6>
+                                                <span class="post-on">
+                            <span class="entry-date">23/07/2024</span>
+                        </span>
+                                            </div>
+                </li>
+                                                <li class="clearfix"> 
+                                        <div class="thumb">
+                        <a href="https://www.gloriousbuilders.com/5-top-interior-design-trends-in-dha-lahore-2024/">
+                            <img width="150" height="150" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20150'%3E%3C/svg%3E" class="attachment-thumbnail size-thumbnail wp-post-image" alt="5 Top Interior Design Trends In DHA Lahore 2024" decoding="async" data-lazy-srcset="https://www.gloriousbuilders.com/wp-content/uploads/2024/07/5-Top-Interior-Design-Trends-In-DHA-Lahore-2024-150x150.jpg 150w, https://www.gloriousbuilders.com/wp-content/uploads/2024/07/5-Top-Interior-Design-Trends-In-DHA-Lahore-2024-720x720.jpg 720w" data-lazy-sizes="(max-width: 150px) 100vw, 150px" data-lazy-src="https://www.gloriousbuilders.com/wp-content/uploads/2024/07/5-Top-Interior-Design-Trends-In-DHA-Lahore-2024-150x150.jpg" /><noscript><img width="150" height="150" src="https://www.gloriousbuilders.com/wp-content/uploads/2024/07/5-Top-Interior-Design-Trends-In-DHA-Lahore-2024-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="5 Top Interior Design Trends In DHA Lahore 2024" decoding="async" srcset="https://www.gloriousbuilders.com/wp-content/uploads/2024/07/5-Top-Interior-Design-Trends-In-DHA-Lahore-2024-150x150.jpg 150w, https://www.gloriousbuilders.com/wp-content/uploads/2024/07/5-Top-Interior-Design-Trends-In-DHA-Lahore-2024-720x720.jpg 720w" sizes="(max-width: 150px) 100vw, 150px" /></noscript>                        </a>
+                    </div>
+                                        <div class="entry-header">
+                        <h6>
+                            <a href="https://www.gloriousbuilders.com/5-top-interior-design-trends-in-dha-lahore-2024/">5 Top Interior Design Trends In DHA Lahore 2024</a>
+                        </h6>
+                                                <span class="post-on">
+                            <span class="entry-date">22/07/2024</span>
+                        </span>
+                                            </div>
+                </li>
+                            </ul>
+
+    </section><section id="categories-2" class="widget widget_categories"><h6 class="widget-title">Categories</h6>
+			<ul>
+					<li class="cat-item cat-item-2"><a href="https://www.gloriousbuilders.com/category/achitecture/">Achitecture</a>
+</li>
+	<li class="cat-item cat-item-173"><a href="https://www.gloriousbuilders.com/category/construction/">Construction</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://www.gloriousbuilders.com/category/design/">Design</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://www.gloriousbuilders.com/category/furniture/">Furniture</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://www.gloriousbuilders.com/category/glorious-builder/">Glorious Builder</a>
+</li>
+	<li class="cat-item cat-item-41"><a href="https://www.gloriousbuilders.com/category/gray-structure/">Gray Structure</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="https://www.gloriousbuilders.com/category/interior/">Interior</a>
+</li>
+	<li class="cat-item cat-item-194"><a href="https://www.gloriousbuilders.com/category/other/">Other</a>
+</li>
+			</ul>
+
+			</section></aside><!-- #secondary -->
+			</div>
+		</div>	
+	</div>
+
+	</div><!-- #content -->
+	<footer id="site-footer" class="site-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">		<div data-elementor-type="wp-post" data-elementor-id="6" class="elementor elementor-6" data-elementor-post-type="ot_footer_builders">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-45eddd5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="45eddd5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-89b3216 ot-flex-column-vertical" data-id="89b3216" data-element_type="column" id="mobile-footer-logo">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-79f6def elementor-widget elementor-widget-image" data-id="79f6def" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://www.gloriousbuilders.com/">
+							<img width="401" height="130" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20401%20130'%3E%3C/svg%3E" class="attachment-full size-full wp-image-4607" alt="construction companies lahore" data-lazy-srcset="https://www.gloriousbuilders.com/wp-content/uploads/2020/06/GloriusBuildersLogoWhite-1.png 401w, https://www.gloriousbuilders.com/wp-content/uploads/2020/06/GloriusBuildersLogoWhite-1-300x97.png 300w" data-lazy-sizes="(max-width: 401px) 100vw, 401px" data-lazy-src="https://www.gloriousbuilders.com/wp-content/uploads/2020/06/GloriusBuildersLogoWhite-1.png" /><noscript><img width="401" height="130" src="https://www.gloriousbuilders.com/wp-content/uploads/2020/06/GloriusBuildersLogoWhite-1.png" class="attachment-full size-full wp-image-4607" alt="construction companies lahore" srcset="https://www.gloriousbuilders.com/wp-content/uploads/2020/06/GloriusBuildersLogoWhite-1.png 401w, https://www.gloriousbuilders.com/wp-content/uploads/2020/06/GloriusBuildersLogoWhite-1-300x97.png 300w" sizes="(max-width: 401px) 100vw, 401px" /></noscript>								</a>
+													</div>
+				</div>
+				<div class="elementor-element elementor-element-c833706 elementor-hidden-mobile elementor-widget elementor-widget-text-editor" data-id="c833706" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Glorious Builders, with a 25 Years track record of success, is one of Pakistan&#8217;s remarkably fast developing infrastructure and construction enterprises. It has been working on high-end projects in your neighbourhood and delivering them the homes of their dreams.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-abadda0 e-grid-align-left elementor-widget__width-auto e-grid-align-mobile-center elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="abadda0" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-animation-pulse-grow elementor-repeater-item-049712d" href="https://twitter.com/GBuildersLHR" target="_blank">
+						<span class="elementor-screen-only">Twitter</span>
+						<svg class="e-font-icon-svg e-fab-twitter" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-animation-pulse-grow elementor-repeater-item-030f11b" href="https://www.facebook.com/GloriousBuildersconstructioncompanypaksitan" target="_blank">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<svg class="e-font-icon-svg e-fab-facebook-f" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin-in elementor-animation-pulse-grow elementor-repeater-item-9c6b4b3" href="https://www.linkedin.com/company/gloriousbuilders" target="_blank">
+						<span class="elementor-screen-only">Linkedin-in</span>
+						<svg class="e-font-icon-svg e-fab-linkedin-in" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-pulse-grow elementor-repeater-item-b977f7f" href="https://www.instagram.com/gloriousbuilders/" target="_blank">
+						<span class="elementor-screen-only">Instagram</span>
+						<svg class="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-animation-pulse-grow elementor-repeater-item-41368df" href="https://www.youtube.com/channel/UCaDHL-pMcLco-I5DYhTDy_w/videos?view_as=subscriber" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<svg class="e-font-icon-svg e-fab-youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-google-plus-g elementor-animation-pulse-grow elementor-repeater-item-bb95b7f" href="https://www.google.com/maps/place/Glorious+Builders+-+Construction+Company+in+Lahore/@31.3672695,74.1847894,17z/data=!3m1!4b1!4m5!3m4!1s0x3918ff7ee45f306f:0x535ee831c18a3952!8m2!3d31.3672695!4d74.1869781" target="_blank">
+						<span class="elementor-screen-only">Google-plus-g</span>
+						<svg class="e-font-icon-svg e-fab-google-plus-g" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M386.061 228.496c1.834 9.692 3.143 19.384 3.143 31.956C389.204 370.205 315.599 448 204.8 448c-106.084 0-192-85.915-192-192s85.916-192 192-192c51.864 0 95.083 18.859 128.611 50.292l-52.126 50.03c-14.145-13.621-39.028-29.599-76.485-29.599-65.484 0-118.92 54.221-118.92 121.277 0 67.056 53.436 121.277 118.92 121.277 75.961 0 104.513-54.745 108.965-82.773H204.8v-66.009h181.261zm185.406 6.437V179.2h-56.001v55.733h-55.733v56.001h55.733v55.733h56.001v-55.733H627.2v-56.001h-55.733z"></path></svg>					</a>
+				</span>
+					</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-7a768ee ot-flex-column-vertical" data-id="7a768ee" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7a78885 elementor-widget elementor-widget-heading" data-id="7a78885" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">LINKS</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-6bae74d elementor-align-left elementor-tablet-align-right elementor-mobile-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6bae74d" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="/about-us/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">About Us</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/projects">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Projects</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/services/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Services</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/blog/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Blogs</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/contact-us/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Contact Us</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/faqs/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">FAQs</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/terms-and-conditions/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Terms and conditions</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-3e42b03 elementor-hidden-mobile ot-flex-column-vertical" data-id="3e42b03" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-14801ec elementor-widget elementor-widget-heading" data-id="14801ec" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">AREAS</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-364e9e3 elementor-align-left elementor-tablet-align-right elementor-mobile-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="364e9e3" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="/best-construction-company-in-dha-lahore/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Defence Housing Authority (DHA)</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/best-construction-company-in-bahria-town-lahore/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Bahria Town</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/best-construction-company-lake-city/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Lake City</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/valencia-housing-society/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Valencia Housing Society</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/wapda-town/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Wapda Town</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/fazaia-housing/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Fazaia Housing</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="/sukhchayn-garden/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-chevron-circle-right" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Sukhchayn Garden</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-7841a99 ot-flex-column-vertical" data-id="7841a99" data-element_type="column" id="mobile-footer-address">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-b0eb1aa elementor-widget elementor-widget-heading" data-id="b0eb1aa" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">GET IN TOUCH</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-632d3f5 elementor-mobile-align-left elementor-align-left elementor-list-item-link-inline elementor-widget elementor-widget-icon-list" data-id="632d3f5" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-id-card" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M528 32H48C21.5 32 0 53.5 0 80v16h576V80c0-26.5-21.5-48-48-48zM0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V128H0v304zm352-232c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zm0 64c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zm0 64c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zM176 192c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zM67.1 396.2C75.5 370.5 99.6 352 128 352h8.2c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h8.2c28.4 0 52.5 18.5 60.9 44.2 3.2 9.9-5.2 19.8-15.6 19.8H82.7c-10.4 0-18.8-10-15.6-19.8z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">Mr. Waqas Rana</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="tel:+923239999450">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-phone-alt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">+92 (323) 9999 450</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://www.google.com/maps/place/Glorious+Builders+-+Construction+Company+DHA+Lahore/@31.4755801,74.4409568,15z/data=!4m9!1m2!2m1!1sC+172+-+Sector+J+-+Main+Boulevard+Phase+6+-+DHA+-+Lahore,+54792!3m5!1s0x391909a76ecca9c9:0x9a692076b7ab137a!8m2!3d31.484875!4d74.4583075!15sCj9DIDE3MiAtIFNlY3RvciBKIC0gTWFpbiBCb3VsZXZhcmQgUGhhc2UgNiAtIERIQSAtIExhaG9yZSwgNTQ3OTJaOCI2YyAxNzIgc2VjdG9yIGogbWFpbiBib3VsZXZhcmQgcGhhc2UgNiBkaGEgbGFob3JlIDU0NzkykgEUY29uc3RydWN0aW9uX2NvbXBhbnmaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUTJjRzk2YWtoM0VBRQ">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-map-marker-alt" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">C 172 - Sector J - Main Boulevard Phase 6 - DHA - Lahore, 54792</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://goo.gl/maps/4GKseVRgn9Z7WdQV8">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-map-marker-alt" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">234 - Tulip - Jinnah Avenue<br><margin>Bahria Town - Lahore, 53720</margin></span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-e141eb5 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e141eb5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-extended">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a8a7a8d ot-flex-column-vertical" data-id="a8a7a8d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-b91cf11 elementor-widget elementor-widget-text-editor" data-id="b91cf11" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>© Copyright 2024 – Glorious Builders</p>						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		</footer></div><!-- #page -->
+
+		<script type="rocketlazyloadscript">
+			window.RS_MODULES = window.RS_MODULES || {};
+			window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+			window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+			window.RS_MODULES.defered = false;
+			window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+			window.RS_MODULES.type = 'compiled';
+		</script>
+		
+		<!-- GA Google Analytics @ https://m0n.co/ga -->
+		<script type="rocketlazyloadscript" async src="https://www.googletagmanager.com/gtag/js?id=G-DQ8EQCFKJR"></script>
+		<script type="rocketlazyloadscript">
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-DQ8EQCFKJR');
+		</script>
+
+	<a id="back-to-top" href="#" class="show" aria-label="Back to top"><i class="ot-flaticon-left-arrow"></i></a><!-- Click to Chat - https://holithemes.com/plugins/click-to-chat/  v4.5 -->  
+            <div class="ht-ctc ht-ctc-chat ctc-analytics ctc_wp_desktop style-7_1  " id="ht-ctc-chat"  
+                style="display: none;  position: fixed; bottom: 15px; left: 15px;"   >
+                                <div class="ht_ctc_style ht_ctc_chat_style">
+                <style id="ht-ctc-s7_1">
+.ht-ctc .ctc_s_7_1:hover{background-color:#c98f32 !important;}.ht-ctc .ctc_s_7_1:hover .ctc_s_7_1_cta{color:#f4f4f4 !important;}.ht-ctc .ctc_s_7_1:hover svg g path{fill:#f4f4f4 !important;}</style>
+
+<div class="ctc_s_7_1 ctc-analytics ctc_nb" style="display:flex;justify-content:center;align-items:center; padding:5px 5px 5px 20px; background-color:#c9a162;border-radius:25px;" data-nb_top="-7.8px" data-nb_right="-7.8px">
+    <p class="ctc_s_7_1_cta ctc-analytics ctc_cta ht-ctc-cta " style="color: #ffffff; border-radius:10px; margin:0 10px; order: 1; padding: 1px 16px;">Chat with us......</p>
+    <div class="ctc_s_7_icon_padding ctc-analytics " style="">
+        <svg style="pointer-events:none; display:block; height:25px; width:25px;" height="25px" version="1.1" viewBox="0 0 509 512" width="25px">
+        <g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1">
+            <path style="fill: #ffffff;" d="M259.253137,0.00180389396 C121.502859,0.00180389396 9.83730687,111.662896 9.83730687,249.413175 C9.83730687,296.530232 22.9142299,340.597122 45.6254897,378.191325 L0.613226597,512.001804 L138.700183,467.787757 C174.430395,487.549184 215.522926,498.811168 259.253137,498.811168 C396.994498,498.811168 508.660049,387.154535 508.660049,249.415405 C508.662279,111.662896 396.996727,0.00180389396 259.253137,0.00180389396 L259.253137,0.00180389396 Z M259.253137,459.089875 C216.65782,459.089875 176.998957,446.313956 143.886359,424.41206 L63.3044195,450.21808 L89.4939401,372.345171 C64.3924908,337.776609 49.5608297,295.299463 49.5608297,249.406486 C49.5608297,133.783298 143.627719,39.7186378 259.253137,39.7186378 C374.871867,39.7186378 468.940986,133.783298 468.940986,249.406486 C468.940986,365.025215 374.874096,459.089875 259.253137,459.089875 Z M200.755924,146.247066 C196.715791,136.510165 193.62103,136.180176 187.380228,135.883632 C185.239759,135.781068 182.918689,135.682963 180.379113,135.682963 C172.338979,135.682963 164.002301,138.050856 158.97889,143.19021 C152.865178,149.44439 137.578667,164.09322 137.578667,194.171258 C137.578667,224.253755 159.487251,253.321759 162.539648,257.402027 C165.600963,261.477835 205.268745,324.111057 266.985579,349.682963 C315.157262,369.636141 329.460495,367.859106 340.450462,365.455539 C356.441543,361.9639 376.521811,350.186865 381.616571,335.917077 C386.711331,321.63837 386.711331,309.399797 385.184018,306.857991 C383.654475,304.305037 379.578667,302.782183 373.464955,299.716408 C367.351242,296.659552 337.288812,281.870254 331.68569,279.83458 C326.080339,277.796676 320.898622,278.418749 316.5887,284.378615 C310.639982,292.612729 304.918689,301.074268 300.180674,306.09099 C296.46161,310.02856 290.477218,310.577055 285.331175,308.389764 C278.564174,305.506821 259.516237,298.869139 236.160607,278.048627 C217.988923,261.847958 205.716906,241.83458 202.149458,235.711949 C198.582011,229.598236 201.835077,225.948292 204.584241,222.621648 C207.719135,218.824546 210.610997,216.097679 213.667853,212.532462 C216.724709,208.960555 218.432625,207.05866 220.470529,202.973933 C222.508433,198.898125 221.137195,194.690767 219.607652,191.629452 C218.07588,188.568136 205.835077,158.494558 200.755924,146.247066 Z" 
+            fill="#ffffff" id="htwaicon-chat"/>
+        </g>
+        </svg>    </div>
+</div>                </div>
+            </div>
+                        <span class="ht_ctc_chat_data" 
+                data-no_number=""
+                data-settings="{&quot;number&quot;:&quot;923239999450&quot;,&quot;pre_filled&quot;:&quot;&quot;,&quot;dis_m&quot;:&quot;show&quot;,&quot;dis_d&quot;:&quot;show&quot;,&quot;css&quot;:&quot;display: none; cursor: pointer; z-index: 99999999;&quot;,&quot;pos_d&quot;:&quot;position: fixed; bottom: 15px; left: 15px;&quot;,&quot;pos_m&quot;:&quot;position: fixed; bottom: 15px; left: 15px;&quot;,&quot;schedule&quot;:&quot;no&quot;,&quot;se&quot;:150,&quot;ani&quot;:&quot;no-animations&quot;,&quot;url_structure_m&quot;:&quot;wa_colon&quot;,&quot;url_target_d&quot;:&quot;_self&quot;,&quot;ga&quot;:&quot;yes&quot;,&quot;fb&quot;:&quot;yes&quot;,&quot;g_init&quot;:&quot;default&quot;,&quot;g_an_event_name&quot;:&quot;chat: {number}&quot;,&quot;pixel_event_name&quot;:&quot;Click to Chat by HoliThemes&quot;}" 
+            ></span>
+            			<script type="rocketlazyloadscript" data-rocket-type='text/javascript'>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<link rel='stylesheet' id='elementor-post-3616-css' href='https://www.gloriousbuilders.com/wp-content/uploads/elementor/css/post-3616.css?ver=1722242307' type='text/css' media='all' />
+<link rel='stylesheet' id='e-animations-css' href='https://www.gloriousbuilders.com/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.23.1' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-3777-css' href='https://www.gloriousbuilders.com/wp-content/uploads/elementor/css/post-3777.css?ver=1722242774' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-6-css' href='https://www.gloriousbuilders.com/wp-content/uploads/elementor/css/post-6.css?ver=1722242307' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='rs-plugin-settings-css' href='https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=1722242307' type='text/css' media='all' />
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+#rs-demo-id {}
+</style>
+<link rel='stylesheet' id='wpforms-choicesjs-css' href='https://www.gloriousbuilders.com/wp-content/plugins/wpforms-lite/assets/css/choices.min.css?ver=9.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wpforms-modern-full-css' href='https://www.gloriousbuilders.com/wp-content/plugins/wpforms-lite/assets/css/frontend/modern/wpforms-full.min.css?ver=1.8.9.6' type='text/css' media='all' />
+<script type="text/javascript" id="ht_ctc_app_js-js-extra">
+/* <![CDATA[ */
+var ht_ctc_chat_var = {"number":"923239999450","pre_filled":"","dis_m":"show","dis_d":"show","css":"display: none; cursor: pointer; z-index: 99999999;","pos_d":"position: fixed; bottom: 15px; left: 15px;","pos_m":"position: fixed; bottom: 15px; left: 15px;","schedule":"no","se":"150","ani":"no-animations","url_structure_m":"wa_colon","url_target_d":"_self","ga":"yes","fb":"yes","g_init":"default","g_an_event_name":"chat: {number}","pixel_event_name":"Click to Chat by HoliThemes"};
+var ht_ctc_variables = {"g_an_event_name":"chat: {number}","pixel_event_type":"trackCustom","pixel_event_name":"Click to Chat by HoliThemes","g_an_params":["g_an_param_1","g_an_param_2","g_an_param_3"],"g_an_param_1":{"key":"number","value":"{number}"},"g_an_param_2":{"key":"title","value":"{title}"},"g_an_param_3":{"key":"url","value":"{url}"},"pixel_params":["pixel_param_1","pixel_param_2","pixel_param_3","pixel_param_4"],"pixel_param_1":{"key":"Category","value":"Click to Chat for WhatsApp"},"pixel_param_2":{"key":"ID","value":"{number}"},"pixel_param_3":{"key":"Title","value":"{title}"},"pixel_param_4":{"key":"URL","value":"{url}"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/plugins/click-to-chat-for-whatsapp/new/inc/assets/js/app.js?ver=1717857456" id="ht_ctc_app_js-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-includes/js/dist/hooks.min.js?ver=2810c76e705dd1a53b18" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=1717857456" id="swv-js" defer></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/www.gloriousbuilders.com\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1717857456" id="contact-form-7-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.5.18" id="tp-tools-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.5.31" id="revmin-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin\/|\/logout\/|\/wp-login.php|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/www.gloriousbuilders.com","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/themes/theratio/js/swiper.min.js?ver=20180910" id="swiper-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/themes/theratio/js/mousewheel.min.js?ver=20180910" id="mousewheel-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/themes/theratio/js/lightgallery-all.min.js?ver=20180910" id="lightgallery-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/themes/theratio/js/jquery.isotope.min.js?ver=20190829" id="isotope-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/themes/theratio/js/easypiechart.min.js?ver=20190829" id="easypiechart-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/themes/theratio/js/jquery.countdown.min.js?ver=20180910" id="countdown-js" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/themes/theratio/js/before-after.js?ver=1717857456" id="theratio-before-after-js" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/themes/theratio/js/elementor.js?ver=1717857456" id="theratio-elementor-js" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/themes/theratio/js/elementor-header.js?ver=1717857456" id="theratio-elementor-header-js" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/themes/theratio/js/scripts.js?ver=1717857456" id="theratio-scripts-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6LeGnvsUAAAAAPJdTsmODo4aw5V74Ai06VheLcMF&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="wpcf7-recaptcha-js-extra">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6LeGnvsUAAAAAPJdTsmODo4aw5V74Ai06VheLcMF","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=1717857456" id="wpcf7-recaptcha-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.18.1" id="elementor-pro-webpack-runtime-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.23.1" id="elementor-webpack-runtime-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.23.1" id="elementor-frontend-modules-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="elementor-pro-frontend-js-before">
+/* <![CDATA[ */
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.gloriousbuilders.com\/wp-admin\/admin-ajax.php","nonce":"d2aefe4bd2","urls":{"assets":"https:\/\/www.gloriousbuilders.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.gloriousbuilders.com\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},
+"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.gloriousbuilders.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.18.1" id="elementor-pro-frontend-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="elementor-frontend-js-before">
+/* <![CDATA[ */
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselWrapperAriaLabel":"Carousel | Horizontal scrolling: Arrow Left & Right","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},
+"version":"3.23.1","is_static":false,"experimentalFeatures":{"e_optimized_css_loading":true,"e_font_icon_svg":true,"container_grid":true,"e_swiper_latest":true,"e_nested_atomic_repeaters":true,"e_onboarding":true,"theme_builder_v2":true,"home_screen":true,"e_lazyload":true,"page-transitions":true,"notes":true,"form-submissions":true,"e_scroll_snap":true},"urls":{"assets":"https:\/\/www.gloriousbuilders.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/www.gloriousbuilders.com\/wp-admin\/admin-ajax.php"},"nonces":{"floatingButtonsClickTracking":"9584c6bc4e"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":9163,"title":"Benefits%20Of%20Building%20a%20Custom%20House%20in%20Lahore%20-%20Glorious%20Builders-One%20of%20the%20Best%20Construction%20Companies%20in%20Pakistan","excerpt":"","featuredImage":"https:\/\/www.gloriousbuilders.com\/wp-content\/uploads\/2022\/11\/custom-house-construction-in-lahore-1024x576.jpg"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.23.1" id="elementor-frontend-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/elementor-pro/assets/js/preloaded-elements-handlers.min.js?ver=3.18.1" id="pro-preloaded-elements-handlers-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-includes/js/underscore.min.js?ver=1.13.4" id="underscore-js" defer></script>
+<script type="text/javascript" id="wp-util-js-extra">
+/* <![CDATA[ */
+var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-includes/js/wp-util.min.js?ver=6.6.1" id="wp-util-js" defer></script>
+<script type="text/javascript" id="wpforms-elementor-js-extra">
+/* <![CDATA[ */
+var wpformsElementorVars = {"captcha_provider":"recaptcha","recaptcha_type":"v2"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/wpforms-lite/assets/js/integrations/elementor/frontend.min.js?ver=1.8.9.6" id="wpforms-elementor-js" defer></script>
+<script type="text/javascript" id="wpforms-choicesjs-js-extra">
+/* <![CDATA[ */
+var wpforms_choicesjs_config = {"removeItemButton":"1","shouldSort":"","fuseOptions":{"threshold":0.1,"distance":1000},"loadingText":"Loading...","noResultsText":"No results found","noChoicesText":"No choices to choose from","itemSelectText":"","uniqueItemText":"Only unique values can be added","customAddItemText":"Only values matching specific conditions can be added"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/wpforms-lite/assets/lib/choices.min.js?ver=10.2.0" id="wpforms-choicesjs-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/wpforms-lite/assets/lib/jquery.validate.min.js?ver=1.20.0" id="wpforms-validation-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/wpforms-lite/assets/lib/jquery.inputmask.min.js?ver=5.0.7-beta.29" id="wpforms-maskedinput-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/wpforms-lite/assets/lib/mailcheck.min.js?ver=1.1.2" id="wpforms-mailcheck-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/wpforms-lite/assets/lib/punycode.min.js?ver=1.0.0" id="wpforms-punycode-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/wpforms-lite/assets/js/share/utils.min.js?ver=1.8.9.6" id="wpforms-generic-utils-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/wpforms-lite/assets/js/frontend/wpforms.min.js?ver=1.8.9.6" id="wpforms-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.gloriousbuilders.com/wp-content/plugins/wpforms-lite/assets/js/frontend/wpforms-modern.min.js?ver=1.8.9.6" id="wpforms-modern-js" defer></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpforms_settings = {"val_required":"This field is required.","val_email":"Please enter a valid email address.","val_email_suggestion":"Did you mean {suggestion}?","val_email_suggestion_title":"Click to accept this suggestion.","val_email_restricted":"This email address is not allowed.","val_number":"Please enter a valid number.","val_number_positive":"Please enter a valid positive number.","val_minimum_price":"Amount entered is less than the required minimum.","val_confirm":"Field values do not match.","val_checklimit":"You have exceeded the number of allowed selections: {#}.","val_limit_characters":"{count} of {limit} max characters.","val_limit_words":"{count} of {limit} max words.","val_recaptcha_fail_msg":"Google reCAPTCHA verification failed, please try again later.","val_turnstile_fail_msg":"Cloudflare Turnstile verification failed, please try again later.","val_inputmask_incomplete":"Please fill out the field in required format.","uuid_cookie":"","locale":"en","wpforms_plugin_url":"https:\/\/www.gloriousbuilders.com\/wp-content\/plugins\/wpforms-lite\/","gdpr":"1","ajaxurl":"https:\/\/www.gloriousbuilders.com\/wp-admin\/admin-ajax.php","mailcheck_enabled":"1","mailcheck_domains":[],"mailcheck_toplevel_domains":["dev"],"is_ssl":"1","currency_code":"USD","currency_thousands":",","currency_decimals":"2","currency_decimal":".","currency_symbol":"$","currency_symbol_pos":"left","val_requiredpayment":"Payment is required.","val_creditcard":"Please enter a valid credit card number.","css_vars":["field-border-radius","field-border-style","field-border-size","field-background-color","field-border-color","field-text-color","field-menu-color","label-color","label-sublabel-color","label-error-color","button-border-radius","button-border-style","button-border-size","button-background-color","button-border-color","button-text-color","page-break-color","background-image","background-position","background-repeat","background-size","background-width","background-height","background-color","background-url","container-padding","container-border-style","container-border-width","container-border-color","container-border-radius","field-size-input-height","field-size-input-spacing","field-size-font-size","field-size-line-height","field-size-padding-h","field-size-checkbox-size","field-size-sublabel-spacing","field-size-icon-size","label-size-font-size","label-size-line-height","label-size-sublabel-font-size","label-size-sublabel-line-height","button-size-font-size","button-size-height","button-size-padding-h","button-size-margin-top","container-shadow-size-box-shadow"],"isModernMarkupEnabled":"1","formErrorMessagePrefix":"Form error message","errorMessagePrefix":"Error message","submitBtnDisabled":"Submit button is disabled during form submission.","error_updating_token":"Error updating token. Please try again or contact support if the issue persists.","network_error":"Network error or server is unreachable. Check your connection or try again later.","token_cache_lifetime":"86400"}
+/* ]]> */
+</script>
+<script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.gloriousbuilders.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script></body>
+</html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1722344923 -->

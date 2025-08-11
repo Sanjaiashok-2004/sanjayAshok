@@ -1,0 +1,181 @@
+
+h3{
+  color: black;
+}
+p{
+  color: black;
+}
+.service-content  a{
+  color: black;
+
+}
+h2{
+  color: black;
+}
+span{
+  color: black;
+}
+.service-style-three .service-card {
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 2px 20px -5px rgb(146 184 255 / 90%);
+    box-shadow: 0px 2px 20px -5px rgb(255 255 255);
+   overflow:hidden;
+    -webkit-transition: .5s;
+    transition: .5s;
+  position:relative;
+    margin-bottom: 20px;
+    width: 400px;
+    margin-left: 130px;
+    
+  
+  }
+  
+  .service-img{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:-1;
+  height:100%;
+  background:url(ppt/pp3.jpg);
+  background-position:center center;
+  background-size:cover;
+  }
+  
+  .road{
+   background:url(ppt/h2.jpg);
+     background-position:center center;
+  background-size:cover;
+  }
+  
+  .industrial{
+   background:url(ppt/pp8.jpg);
+     background-position:center center;
+  background-size:cover;
+  }
+  
+  .construction{
+   background:url(ppt/ppt4.jpg);
+     background-position:center center;
+  background-size:cover;
+  }
+  .structure{
+   background:url(ppt/ppt.jpg);
+     background-position:center center;
+  background-size:cover;
+  }
+  .water{
+   background:url(ppt/h3.jpg);
+     background-position:center center;
+  background-size:cover;
+  }
+  
+  .service-style-three .service-card:hover .service-content{
+   background:rgba(0,0,0,0.4);
+  }
+  
+  .service-content{
+  background-color: #f5f5f5;
+  padding: 40px 25px 30px 25px;
+  transition:all 1s ease;
+  
+  }
+  
+  
+  .section-title {
+    margin: auto;
+    margin-bottom: 50px;
+  }
+  
+  .service-style-three .service-card img {
+    width: 45px;
+    margin-bottom:19px;
+    z-index: 0;
+    position: relative;
+    -webkit-transition: .5s;
+    transition: .5s;
+    display: inline-block;
+    line-height:1;
+  }
+  .service-style-three .service-card h3 {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  
+  
+  .service-style-three .service-card:hover .service-content img{
+  filter: invert(1);
+  }
+  .service-style-three .service-card:hover .service-content h3{
+   color:#fff;
+  }
+  .service-style-three .service-card:hover .service-content p{
+   color:#fff;
+  }
+  .service-style-three .service-card:hover .service-content a{
+   color:#fff;
+  }
+  .service-style-three .service-card:hover .service-content a:before{
+   background-color:#fff;
+  }
+  .service-style-three .service-card p {
+    margin-bottom: 10px;
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  .service-style-three .service-card .service-btn {
+    color: #1f1c0c;
+    position: relative;
+  }
+  .service-style-three .service-card .service-btn::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    background: #1f1c0c;
+  }
+  
+  .service-style-three .service-card img:after {
+    position: absolute;
+    content: '';
+    background: #ffea00;
+    width: 45px;
+    height: 45px;
+    border-radius: 50px;
+    right: -25px;
+    top: -15px;
+    z-index: -1;
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  *{
+    box-sizing: border-box;
+    
+    
+  }
+  .col-lg-4col-sm-6{
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    text-align: center;
+    
+    
+  }
+  .row::after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .section-titletext-center{
+    text-align: center;
+    margin-left: 130px;
+  }
+  .container{
+    margin-right: 200px;
+  }
+  

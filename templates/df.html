@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Predictor</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .bg-dark{
+            min-height: 100vh;
+            background-image: linear-gradient(70deg, #DC422A, blue);
+            display: flex;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .container{
+            margin: auto;
+            width: 500px;
+            max-width: 90%;
+        }
+        .container form{
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            background-image: linear-gradient(70deg, #5b1ee9, rgb(9, 247, 187));
+
+            background-color:red;
+            border-radius: 4px;
+            box-shadow: 0 8px 16px  rgba(0, 0, 0, .3);
+        }
+        .container form h1{
+            text-align: center;
+            margin-bottom: 24px;
+            color: #222;
+        }
+        .container form  .col-md-6form-group{
+            width: 100%;
+            height: 40px;
+            background-image: linear-gradient(70deg, #DC422A, blue);
+            background-color: #f849e9;
+            border-radius: 6px;
+            border: 10px solid silver;
+            margin: 10px 2px 18px 2px;
+            padding:  0 10px;
+        }
+
+
+
+    
+    </style>
+</head>
+<body class="bg-dark">
+    <div class="container">
+        
+       <div class="row">
+           <div class="card" style="width: 100%; height:100%; margin-top: 50px;">
+               <div class="card-header" style="text-align: center;">
+                   <h1>WELCOME TO  CONSTRUCTION PREDICTOR</h1>
+                   <hr>
+               </div>
+               <div class="card-body">
+                   <form method="post" action="/predict" accept-charset="UTF-8">
+                       <div class="row">
+                           <div class="col-md-6form-group" style="text-align: center">
+                               <label><b>Select the location:</b></label>
+                               <select class="select-picker form-control" id="location" name="location" required="1">
+                                  {% for location in locations %}
+                                  <option value="{{ location }}">{{ location }}</option>
+                                  {% endfor %}
+                               </select>
+                           </div>
+
+                           <div class="col-md-6form-group" style="text-align: center">
+                               <label><b>Enter BHK:</b></label>
+                               <input type="text" class="form-control" id="bhk" name="bhk" placeholder="Enter BHK">
+                           </div>
+
+                           <div class="col-md-6form-group" style="text-align: center">
+                               <label><b>Enter number of bathrooms:</b></label>
+                               <input type="text" class="form-control" id="bath" name="bath" placeholder="Enter number of bathrooms">
+                           </div>
+
+                           <div class="col-md-6form-group" style="text-align: center">
+                               <label><b>Enter square feet:</b></label>
+                               <input type="text" class="form-control" id="total_sqft" name="total_sqft" placeholder="Enter square feet">
+                           </div>
+
+                           <div class="col-md-6form-group">
+                               <center><button type="submit" class="btn btn-primary form-control">PREDICT PRICE</button></center>
+                           </div>
+                       </div>
+                   </form>
+                   <br>
+                   <div class="col-md-12" style="text-align: center">
+                       <h3><span id="prediction"></span></h3>
+                   </div>
+               </div>
+           </div>
+       </div>
+    
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var fd = new FormData(event.target);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/predict', true);
+            document.getElementById("prediction").innerHTML = "Wait, predicting price!...";
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    document.getElementById('prediction').innerHTML = "Prediction: 39.07$" + xhr.responseText;
+                }
+            };
+            xhr.onload = function () {
+                
+            }
+
+            xhr.send(fd);
+        });
+    </script>
+</body>
+</html>
